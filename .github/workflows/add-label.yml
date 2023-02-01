@@ -12,11 +12,17 @@ jobs:
         with:
           script: |
             const labelMap = new Map([
-            ["feat", ["enhancement"]]
+            ["feat", ["enhancement"]],
+            ["fix"], ["bug"],
+            ["test"], ["coverage"],
+            ["refactor"], ["refactor"]
             ]) 
-            github.rest.issues.addLabels({
-              issue_number: context.payload.pull_request.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: labelMap.get(context.payload.pull_request.title.split("(")[0]),
-            });
+            const labels = labelMap.get(context.payload.pull_request.title.split("(")[0])
+            if (labels) {
+              github.rest.issues.addLabels({
+                issue_number: context.payload.pull_request.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels,
+              });
+            }
