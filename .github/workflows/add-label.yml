@@ -15,7 +15,7 @@ jobs:
             ["feat", ["enhancement"]]
             ]) 
             github.rest.issues.addLabels({
-              issue_number: context.payload.pull_request,
+              issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: "enhancement",
