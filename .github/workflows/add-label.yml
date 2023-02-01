@@ -15,7 +15,7 @@ jobs:
             ["feat", "enhancement"]
             ]) 
             github.rest.pulls.addLabels({
-              pull_number: context.pull_request.number,
+              pull_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: [labelMap.get(context.payload.pull_request.title.split("(")[0])],
