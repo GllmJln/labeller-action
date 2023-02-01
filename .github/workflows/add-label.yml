@@ -12,10 +12,10 @@ jobs:
         with:
           script: |
             const labelMap = new Map([
-            ["feat", ["enhancement"]],
-            ["fix"], ["bug"],
-            ["test"], ["coverage"],
-            ["refactor"], ["refactor"]
+            ["feat", ["enhancement"],
+            ["fix", ["bug"],
+            ["test", ["coverage"],
+            ["refactor", ["refactor"]
             ]) 
             const labels = labelMap.get(context.payload.pull_request.title.split("(")[0])
             if (labels) {
