@@ -6,7 +6,7 @@ jobs:
   label_issues:
     runs-on: ubuntu-latest
     permissions:
-      pull_requests: write
+      pull-requests: write
     steps:
       - uses: actions/github-script@v6
         with:
