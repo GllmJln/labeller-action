@@ -1,7 +1,7 @@
 name: Label PRs
 on:
   pull_request:
-    branches: ["develop"]
+    branches: ["main"]
 jobs:
   label_issues:
     runs-on: ubuntu-latest
