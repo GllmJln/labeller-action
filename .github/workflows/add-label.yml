@@ -34,3 +34,9 @@ jobs:
               repo: context.repo.repo,
               assignees: [context.payload.pull_request.user.login]
             })
+            github.rest.pulls.requestReviewers({
+              repo: context.repo.repo,
+              owner: context.repo.owner,
+              pull_number: context.payload.pull_request.number,
+              reviewers: ["GllmJln"]
+            })
